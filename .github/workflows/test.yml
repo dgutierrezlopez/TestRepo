@@ -19,7 +19,7 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    if: github.event.pull_request.merged == true
+    if: ${{ github.event.pull_request.merged == true }}
     steps:
       # Runs a single command using the runners shell
       - name: Run a one-line script
