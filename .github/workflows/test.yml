@@ -1,4 +1,4 @@
-name: CI
+name: Test
 
 # Controls when the action will run. 
 on:
@@ -26,4 +26,5 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: echo Hello, world!
+        run: |
+          echo $github.event.pull_request.merged
