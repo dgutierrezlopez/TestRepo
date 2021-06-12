@@ -1,0 +1,13 @@
+on:
+  pull_request:
+    branches:
+      - feature
+      - hotfix
+    types: [closed]
+    
+jobs:
+  build:
+    if: github.event.pull_request.merged == true
+    steps:
+      run:
+        echo $github.event.pull_request.merged
