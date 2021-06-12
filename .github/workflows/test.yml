@@ -24,4 +24,5 @@ jobs:
       - name: Run a one-line script
         run: |
           echo "Hello World!!!"
+          echo ${{ github.event_name }} 
           echo ${{ github.event.pull_request.merged }}
