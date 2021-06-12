@@ -6,7 +6,9 @@ on:
   push:
     branches: [ master ]
   pull_request:
-    branches: [ feature, hotfix ]
+    branches: 
+      - feature/**
+      - hotfix/**
     types: [opened, closed]
     
 
