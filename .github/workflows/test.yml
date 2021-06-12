@@ -12,14 +12,11 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   build:
-    env:
-      MERGED_RAW: ${{ github.event.pull_request.merged }}
-      MERGED_TRUE_STR: ${{ github.event.pull_request.merged == 'true' }}
-      MERGED_TRUE_BOOL: ${{ github.event.pull_request.merged == true }}
-      
+   
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    if: github.event.pull_request.merged == true
+    if: |
+      ${{ github.event.pull_request.merged == true || ( github.event.action == 'opened' || github.event.action == 'synchronize' ) }}
     steps:
       # Runs a single command using the runners shell
       - name: Run a one-line script
@@ -28,7 +25,3 @@ jobs:
           echo ${{ github.event_name }} 
           echo ${{ github.event.pull_request.merged }}
           echo ${{ github.event.action }}
-          
-          echo "github.event.pull_request.merged           : $MERGED_RAW"
-          echo "github.event.pull_request.merged == 'true' : $MERGED_TRUE_STR"
-          echo "github.event.pull_request.merged  == true  : $MERGED_TRUE_BOOL"
