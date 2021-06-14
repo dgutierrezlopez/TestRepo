@@ -36,4 +36,4 @@ jobs:
           
           echo "CLUSTER_NAME=hive-druid-cluster" >> $GITHUB_ENV
           
-          echo ${CLUSTER_NAME}
+          echo ${{ env.CLUSTER_NAME }}
