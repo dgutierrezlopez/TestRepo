@@ -28,3 +28,8 @@ jobs:
           
           echo ${GITHUB_HEAD_REF}
           echo ${GITHUB_REF}
+          
+          if [[ $GITHUB_REF == *"refs/pull/"* ]]; then
+            PACKAGE_VERSION="${PACKAGE_VERSION}-SNAPSHOT-feature-${GITHUB_HEAD_REF##*/}-${VERSION_DATE}"
+            echo $PACKAGE_VERSION
+          fi
