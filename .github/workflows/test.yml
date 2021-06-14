@@ -33,3 +33,7 @@ jobs:
             PACKAGE_VERSION="${PACKAGE_VERSION}-SNAPSHOT-feature-${GITHUB_HEAD_REF##*/}-${VERSION_DATE}"
             echo $PACKAGE_VERSION
           fi
+          
+          echo "CLUSTER_NAME=hive-druid-cluster" >> $GITHUB_ENV
+          
+          echo ${CLUSTER_NAME}
