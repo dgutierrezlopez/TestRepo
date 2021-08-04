@@ -35,4 +35,8 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
           
-          echo ${{github.run_id}}
+      - name: Output Run ID
+        run: echo ${{ github.run_id }}
+        
+      - name: Output Run Number
+        run: echo ${{ github.run_number }}
